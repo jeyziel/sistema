@@ -7,6 +7,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                                 class="icon-cog"></i> Opções <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="../">Visualizar Site</a></li>
                             <li><a href="javascript:;">Adicionar Usuários</a></li>
                             <li><a href="javascript:;">Site em Manutençao</a></li>
                         </ul>
@@ -38,7 +39,7 @@
                 <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-file"></i><span>Postagens</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Visualizar</a></li>
-                        <li><a href="#">Cadastrar</a></li>
+                        <li><a href="home.php?acao=cad-postagem">Cadastrar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><span>Usuários</span> <b class="caret"></b></a>

@@ -26,3 +26,5 @@ include("includes/logout.php");
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
