@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="home.php">WVA System</a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="home.php"></a>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -38,7 +38,7 @@
                 <li class="active"><a href="home.php"><i class="icon-dashboard"></i><span>Homepage</span> </a> </li>
                 <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-file"></i><span>Postagens</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Visualizar</a></li>
+                        <li><a href="home.php?acao=ver-postagens">Visualizar</a></li>
                         <li><a href="home.php?acao=cad-postagem">Cadastrar</a></li>
                     </ul>
                 </li>

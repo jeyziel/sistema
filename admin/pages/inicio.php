@@ -23,7 +23,7 @@
                 <div class="span12">
                     <div id="target-1" class="widget">
                         <div class="widget-content">
-                            <h1>WVA System - Apresentação</h1>
+                            <h1>JEYZIEL</h1>
                             <p>O <strong>WVA System</strong> é um Sistema de Postagem desenvolvido pelo canal '<strong>Web Vídeo Aulas</strong>', cujo objetivo é gerenciar toda parte de postagens e
                                 algumas funções internas do próprio sistema.	<br>
                                 O Sistema foi desenvolvido na linguagem <strong>PHP</strong>, utilizando juntamente com a classe <strong>PDO</strong>. O banco de dados utilizado é o famoso <strong>MySQL</strong>.</p>
@@ -46,37 +46,56 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                         <tr>
+                            <th>Nº</th>
                             <th> Título da Postagem </th>
-                            <th> Resumo</th>
+                            <th> DATA</th>
+                            <th> IMAGEM</th>
+                            <th> EXIBIÇÃO</th>
+                            <th> RESUMO</th>
                             <th class="td-actions"> </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td> Fresh Web Development Resources </td>
-                            <td> http://www.egrappler.com/ </td>
-                            <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                        </tr>
-                        <tr>
-                            <td> Fresh Web Development Resources </td>
-                            <td> http://www.egrappler.com/ </td>
-                            <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                        </tr>
-                        <tr>
-                            <td> Fresh Web Development Resources </td>
-                            <td> http://www.egrappler.com/ </td>
-                            <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                        </tr>
-                        <tr>
-                            <td> Fresh Web Development Resources </td>
-                            <td> http://www.egrappler.com/ </td>
-                            <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                        </tr>
-                        <tr>
-                            <td> Fresh Web Development Resources </td>
-                            <td> http://www.egrappler.com/ </td>
-                            <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                        </tr>
+
+                        <?php
+                        include ("functions/limita-texto.php");
+                        //selecionando as postagem
+                        $select = "SELECT * from tb_postagens ORDER BY id DESC LIMIT 5";
+                        $contagem =1;
+                        try{
+                        $result = $conexao->prepare($select);
+                        $result->execute();
+                        $contar = $result->rowCount();
+                        if($contar>0){
+                            while($mostra = $result->fetch(PDO::FETCH_OBJ)){
+                        ?>
+                        <!-- html-->
+                                <tr>
+                                    <td><?php echo $contagem++; ?></td>
+                                    <td> <?php echo $mostra->titulo  ?> </td>
+                                    <td> <?php echo $mostra->data  ?> </td>
+                                    <td><img src="../upload/postagens/<?php echo $mostra->imagem;?>" width="50"/></td>
+                                    <td> <?php echo $mostra->exibir ?> </td>
+                                    <td> <?php echo limitarTexto($mostra->descricao,$limite=200)  ?> </td>
+                                    <td class="td-actions"><a href="home.php?acao=editar-postagem&id=<?php echo $mostra->id;?>" class="btn btn-small btn-success"><i class="btn-icon-only icon-edit"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
+                                </tr>
+                        <!-- html-->
+
+                        <?php
+                            }
+
+                        }else{
+                        echo '<div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>Aviso!</strong> Não há Post cadastrado.
+                        </div>';
+                        }
+
+                        }catch(PDOException $e){
+                        echo $e;
+                        }
+                        ?>
+
                         </tbody>
                     </table>
                 </div>
