@@ -7,10 +7,8 @@
     <div class="main-inner">
         <div class="container">
             <div class="row">
-
                 <div class="span12">
                     <div id="target-1" class="widget">
-
                         <div class="widget-header">
                             <i class="icon-file"></i>
                             <h3>Cadastrar Postagem</h3>
@@ -45,7 +43,8 @@
                                     4 => 'Não foi feito o upload do arquivo'
                                 );
 
-                                if($numFile <= 0){
+
+                                if($numFile <= 0) {
                                     echo '<div class="alert alert-danger">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 						Selecione uma imagem e tente novamente!
@@ -153,6 +152,8 @@
                                             <input type="file" multiple class="span6 fileinput" id="imagem" name="img[]">
                                         </div> <!-- /controls -->
                                     </div> <!-- /control-group -->
+
+
 
 
                                     <div class="control-group">

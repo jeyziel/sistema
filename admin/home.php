@@ -15,7 +15,14 @@
       if($acao=='cad-postagem'){
           include ("pages/cad-postagem.php");
       }
-
+//exibição
+      if($acao=='ver-postagens'){
+          include ("pages/ver-postagens.php");
+      }
+//edição
+      if($acao=='editar-postagem'){
+          include ("pages/edt-postagem.php");
+      }
 
 
 
